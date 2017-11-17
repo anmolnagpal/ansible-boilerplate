@@ -1,46 +1,33 @@
-# ansible-boilerplate
+# Ansible Boilerplate Code
 
 What is boolerplate?
 In computer programming, boilerplate code or boilerplate refers to sections of code that have to be included in many places with little or no alteration. It is often used when referring to languages that are considered verbose, i.e. the programmer must write a lot of code to do minimal jobs
-Ref: https://en.wikipedia.org/wiki/Boilerplate_code
+Ref: 
+##### Read more
 
-This repo is a boilerplate for getting started for repos containing Ansible
-playbooks. `git clone` this project and be on your merry way.
+- [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
 
-## Prerequisites
-
-### Install ansible
-
-#### pip
-
-- `pip install ansible` (may need to run this as `sudo`)
-
-## Getting started
-
-### Git clone
-
-- `git clone --depth=1 --branch=master https://github.com/mikechau/ansible-boilerplate.git` - clone the latest copy of the repo
-- `cd ansible-boilerplate && git remote rm origin` - remove the origin
-
----
 
 ### Directory structure
 
 ```
 .
-├── ansible.cfg
-├── galaxy_roles
-├── inventories
+├── block
+├── files
+├── group_vars
 │   ├── group_vars
 │   └── host_vars
-├── LICENSE
-├── log -> /tmp/ansible.log
-├── notes
-├── playbooks
-├── README.md
-├── requirements.yml
+├── Inventory
+│   └── hosts.ini
 ├── roles
-└── tmp
+│   └── docker
+├── ssh
+│   └── logs
+│       └── ansible.log
+├── ansible.cfg
+│
+└── playbook.yml
+
 ```
 
 #### ansible.cfg
@@ -53,16 +40,6 @@ project.
 
 - [Ansible.cfg - http://docs.ansible.com/ansible/intro_configuration.html](http://docs.ansible.com/ansible/intro_configuration.html)
 
-#### galaxy_roles
-
-This is where you should install your third-party roles from [Ansible Galaxy](https://galaxy.ansible.com/).
-
-Recommended to configure [requirements.yml](requirements.yml) with the third party roles you are
-using.
-
-##### Read more
-
-- [Ansible Galaxy - http://docs.ansible.com/ansible/galaxy.html](http://docs.ansible.com/ansible/galaxy.html)
 
 #### inventories
 
