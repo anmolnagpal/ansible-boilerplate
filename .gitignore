@@ -196,3 +196,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/ssh/logs/ansible.log
