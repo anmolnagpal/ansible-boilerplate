@@ -227,7 +227,3 @@ A tmp directory for convenience. For example, you may prefer to write logs
 here.
 
 ---
-
-### LICENSE
-
-MIT
