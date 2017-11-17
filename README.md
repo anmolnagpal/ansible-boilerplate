@@ -188,8 +188,6 @@ This is where you can add your notes for things like manual configuration.
 
 #### playbooks
 
-[playbooks](http://docs.ansible.com/ansible/playbooks.html)
-
 ##### Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
