@@ -188,28 +188,11 @@ This is where you can add your notes for things like manual configuration.
 
 #### playbooks
 
-This is where [playbooks](http://docs.ansible.com/ansible/playbooks.html)
-should be placed.
+[playbooks](http://docs.ansible.com/ansible/playbooks.html)
 
 ##### Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
-
----
-
-#### requirements.yml
-
-Edit this yml file to add your third-party roles from Github or Ansible Galaxy.
-
-Then install your roles with this command:
-
-```bash
-ansible-galaxy install -r requirements.yml
-```
-
-[Ansible Galaxy - requirements - http://docs.ansible.com/ansible/galaxy.html#advanced-control-over-role-requirements-files](http://docs.ansible.com/ansible/galaxy.html#advanced-control-over-role-requirements-files)
-
----
 
 #### roles
 
