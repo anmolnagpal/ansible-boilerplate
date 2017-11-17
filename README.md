@@ -176,7 +176,7 @@ Example:
 
 #### log
 
-By default this is just a symlink to `tmp/ansible.log`.
+By default this is just a symlink to `ssh/logs/ansible.log`.
 
 ---
 
@@ -194,6 +194,7 @@ This is where you can add your notes for things like manual configuration.
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
 
+---
 #### roles
 
 This is where you can add your custom Ansible [roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles) for usage by your playbooks.
