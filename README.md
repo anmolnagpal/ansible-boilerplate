@@ -11,9 +11,10 @@ Ref:
 ### Directory structure
 
 ```
-.
 ├── block
+│
 ├── files
+│
 ├── group_vars
 │   ├── group_vars
 │   └── host_vars
