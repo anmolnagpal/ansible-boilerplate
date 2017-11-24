@@ -1,0 +1,8 @@
+---
+- hosts: dev-api-backend
+  remote_user: ubuntu
+  become: true
+  roles:
+    - { role: common,               tags: [ 'common'          ] }
+    - { role: docker,               tags: [ 'docker'          ] }
+    - { role: docker-compose,       tags: [ 'docker'          ] }
