@@ -3,7 +3,7 @@
 What is boolerplate?
 In computer programming, boilerplate code or boilerplate refers to sections of code that have to be included in many places with little or no alteration. It is often used when referring to languages that are considered verbose, i.e. the programmer must write a lot of code to do minimal jobs
 Ref: 
-## Read more
+#### Read More
 
 - [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
 
@@ -48,7 +48,7 @@ This is a project specific configuration file to configure Ansible. [View](ansib
 to see a more detailed explanation of the default settings provided by this
 project.
 
-## Read more
+#### Read More
 
 - [Ansible.cfg - http://docs.ansible.com/ansible/intro_configuration.html](http://docs.ansible.com/ansible/intro_configuration.html)
 
@@ -72,7 +72,7 @@ Example structure:
 - `all` - is a Ansible group, where it will be loaded for all hosts.
 - `dev-api-backend`-  is a user defined group of hosts, we defined this in our `dev-api-backend` hosts file in the previous example.
 
-## Read More
+#### Read More
 
 - [Variables - http://docs.ansible.com/ansible/playbooks_variables.html](http://docs.ansible.com/ansible/playbooks_variables.html)
 
@@ -101,7 +101,7 @@ In it you might define it like so:
 dev-api-backend
 ```
 
-## Read More
+#### Read More
 
 - [Inventory - http://docs.ansible.com/ansible/intro_inventory.html](http://docs.ansible.com/ansible/intro_inventory.html)
 
@@ -117,7 +117,7 @@ This is where you can add your notes for things like manual configuration.
 
 This is where you can add your custom Ansible [roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles) for usage by your playbooks.
 
-## Read more
+#### Read More
 
 [Roles - http://docs.ansible.com/ansible/playbooks_roles.html#roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles)
 
