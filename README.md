@@ -131,7 +131,7 @@ By default this is just a symlink to `./ssh/logs/ansible.log`.
 
 ## playbooks
 
-## Read More
+#### Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
 
