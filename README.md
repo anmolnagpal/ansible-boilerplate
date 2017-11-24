@@ -18,18 +18,22 @@ Ref:
 ├── group_vars
 │   ├── all
 │   └── dev-api-backend
+│
 ├── Inventory
 │   └── hosts.ini
+│
 ├── notes
 │   └── tags.txt
 ├── roles
 │   └── docker
 │   └── docker-compose    
+│
 ├── ssh
 │   └── facts
 │   └── logs
 │       └── ansible.log
 │   └── retry
+│
 ├── ansible.cfg
 │
 └── dev-api-backend.yml
