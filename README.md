@@ -51,55 +51,6 @@ project.
 - [Ansible.cfg - http://docs.ansible.com/ansible/intro_configuration.html](http://docs.ansible.com/ansible/intro_configuration.html)
 
 
-#### inventories
-
-This is where you should put the list of hosts for Ansible to connect to. It
-also contains directories for [group_vars](http://docs.ansible.com/ansible/intro_inventory.html#group-variables) and [host_vars](http://docs.ansible.com/ansible/intro_inventory.html#host-variables).
-
-Example:
-
-```
-.
-├── group_vars
-├── host_vars
-└── production
-```
-
-We have a file called `production`, but if you have a lot of environments,
-instead of `production`, you might call it `production_app_name` or
-`app_name_production`, etc.
-
-In it you might define it like so:
-
-```yml
-# inventories/production
-[application]
-app01.server.com
-app02.server.com
-app03.server.com
-
-[database]
-db01.server.com
-
-[production:children]
-application
-database
-```
-
-`production:children`, indicates to Ansible this is a group of made of all the
-things in the groups listed below.
-
-So its equivalent to manually writing:
-
-```
-# inventories/production
-[production]
-app01.server.com
-app02.server.com
-app03.server.com
-db01.server.com
-```
-
 ##### group_vars
 
 This directory contains yaml files which correspond to a group name, and tells
@@ -111,98 +62,51 @@ Example structure:
 .
 └── group_vars
     ├── all
-    │   └── ubuntu.yml
-    ├── application
-    │   ├── rails.yml
-    │   └── secret
-    │       └── rails.yml
-    └── database
-        ├── mysql.yml
-        ├── postgresql.yml
-        └── secret
-            ├── mysql.yml
-            └── postgresql.yml
+    │   └── global.yml
+    └── dev-api-backend
+            └── config.yml
 ```
 
 - `all` - is a Ansible group, where it will be loaded for all hosts.
-- `application`-  is a user defined group of hosts, we defined this in our `production` hosts file in the previous example.
-- `database` - is a user defined group of hosts, we defined this in our `production` hosts file in the previous example.
+- `dev-api-backend`-  is a user defined group of hosts, we defined this in our `dev-api-backend` hosts file in the previous example.
 
-A group variable file looks like this:
+##### Read More
 
-```yml
-# inventories/group_vars/application/rails.yml
----
-rails_version: 5.0.0
-```
+- [Variables - http://docs.ansible.com/ansible/playbooks_variables.html](http://docs.ansible.com/ansible/playbooks_variables.html)
 
-So the `rails_version` variable will be available for all hosts listed under `application` (app[0-3].server.com).
+#### inventories
 
-**NOTE:** You might have noticed the `secret` directory, this is where you can
-take advantage of [ansible-vault](http://docs.ansible.com/ansible/playbooks_vault.html). For secret specific variables such as api keys and etc,
-I like to put them inside a `secret` folder, and encrypt the folder with `ansible-vault`.
-
-Secrets are prefixed with the key `secret_`.
-
-Example:
-
-```yml
-# Encrypted secrets for rails
-# inventories/group_vars/application/secret/rails.yml
----
-secret_rails_secret_token: 1db372dbc0a8200da1d7f9c51384fe0094c940628c497e7e519eb4977aba244cdad0ab9c4965383d2dc9244296ea6b889fe711d40dc590a4455d17e1a012db58
-```
-
-```yml
-# Unencrypted secrets for rails
-# inventories/group_vars/application/rails.yml
----
-rails_version: 5.0.0
-rails_secret_token: "{{ secret_rails_secret_token }}"
-```
-
-You can see our unencrypted variable file reference the encrypted variable file's variable in `secret`.
-
-##### host_vars
-
-`host_vars` work just like `group_vars`, but instead of naming it after a
-group name, you use the `hostname`. The variables only be loaded for that specific host.
+This is where you should put the list of hosts for Ansible to connect to. It
 
 Example:
 
 ```
-.
-└── host_vars
-    └── app01.server.com
-        └── rails.yml
+├── hosts.ini
+```
+
+We have a file called `hosts.ini`, but if you have a lot of environments,
+instead of `develop`, you might call it `dev-api-backend` or
+`dev-db-mongodb`, etc.
+
+In it you might define it like so:
+
+```
+[dev-api-backend]
+10.250.12.51 = Env=dev EcType=dev_api_backend EcName=dev_api_backend-dev-0-a Az=a K=0 Nr=0 PublicIp=54.00.00.00 IType=t2.medium Region=eu-west-1 PrivateIp=10.00.00.00 PrivateDns=ip-10-00-00-00.eu-west-1.compute.internal
+
+[all:children]
+dev-api-backend
 ```
 
 ##### Read More
 
 - [Inventory - http://docs.ansible.com/ansible/intro_inventory.html](http://docs.ansible.com/ansible/intro_inventory.html)
-- [Variables - http://docs.ansible.com/ansible/playbooks_variables.html](http://docs.ansible.com/ansible/playbooks_variables.html)
 
----
-
-#### log
-
-By default this is just a symlink to `ssh/logs/ansible.log`.
-
----
 
 #### notes
 
 This is where you can add your notes for things like manual configuration.
 
----
-
-#### playbooks
-
-##### Read More
-
-- [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
-
----
 #### roles
 
 This is where you can add your custom Ansible [roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles) for usage by your playbooks.
@@ -212,10 +116,17 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 [Roles - http://docs.ansible.com/ansible/playbooks_roles.html#roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles)
 
 ---
+---
 
-#### tmp
+#### ssh/logs
 
-A tmp directory for convenience. For example, you may prefer to write logs
-here.
+By default this is just a symlink to `./ssh/logs/ansible.log`.
+
+---
+#### playbooks
+
+##### Read More
+
+- [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
 
 ---
