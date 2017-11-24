@@ -40,6 +40,8 @@ Ref:
 
 ```
 
+---
+
 #### ansible.cfg
 
 This is a project specific configuration file to configure Ansible. [View](ansible.cfg)
@@ -50,6 +52,7 @@ project.
 
 - [Ansible.cfg - http://docs.ansible.com/ansible/intro_configuration.html](http://docs.ansible.com/ansible/intro_configuration.html)
 
+---
 
 ##### group_vars
 
@@ -73,6 +76,7 @@ Example structure:
 
 - [Variables - http://docs.ansible.com/ansible/playbooks_variables.html](http://docs.ansible.com/ansible/playbooks_variables.html)
 
+---
 #### inventories
 
 This is where you should put the list of hosts for Ansible to connect to. It
@@ -101,10 +105,13 @@ dev-api-backend
 
 - [Inventory - http://docs.ansible.com/ansible/intro_inventory.html](http://docs.ansible.com/ansible/intro_inventory.html)
 
+---
 
 #### notes
 
 This is where you can add your notes for things like manual configuration.
+
+---
 
 #### roles
 
@@ -114,13 +121,18 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 [Roles - http://docs.ansible.com/ansible/playbooks_roles.html#roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles)
 
+---
 
 #### ssh/logs
 
 By default this is just a symlink to `./ssh/logs/ansible.log`.
+
+---
 
 #### playbooks
 
 ##### Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
+
+---
