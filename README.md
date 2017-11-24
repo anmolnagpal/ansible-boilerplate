@@ -3,12 +3,12 @@
 What is boolerplate?
 In computer programming, boilerplate code or boilerplate refers to sections of code that have to be included in many places with little or no alteration. It is often used when referring to languages that are considered verbose, i.e. the programmer must write a lot of code to do minimal jobs
 Ref: 
-##### Read more
+## Read more
 
 - [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
 
 
-### Directory structure
+## Directory structure
 
 ```
 ├── block
@@ -42,19 +42,19 @@ Ref:
 
 ---
 
-#### ansible.cfg
+## ansible.cfg
 
 This is a project specific configuration file to configure Ansible. [View](ansible.cfg)
 to see a more detailed explanation of the default settings provided by this
 project.
 
-##### Read more
+## Read more
 
 - [Ansible.cfg - http://docs.ansible.com/ansible/intro_configuration.html](http://docs.ansible.com/ansible/intro_configuration.html)
 
 ---
 
-##### group_vars
+### group_vars
 
 This directory contains yaml files which correspond to a group name, and tells
 Ansible to load the variables for the hosts in that group.
@@ -72,12 +72,12 @@ Example structure:
 - `all` - is a Ansible group, where it will be loaded for all hosts.
 - `dev-api-backend`-  is a user defined group of hosts, we defined this in our `dev-api-backend` hosts file in the previous example.
 
-##### Read More
+## Read More
 
 - [Variables - http://docs.ansible.com/ansible/playbooks_variables.html](http://docs.ansible.com/ansible/playbooks_variables.html)
 
 ---
-#### inventories
+## inventories
 
 This is where you should put the list of hosts for Ansible to connect to. It
 
@@ -101,38 +101,44 @@ In it you might define it like so:
 dev-api-backend
 ```
 
-##### Read More
+## Read More
 
 - [Inventory - http://docs.ansible.com/ansible/intro_inventory.html](http://docs.ansible.com/ansible/intro_inventory.html)
 
 ---
 
-#### notes
+## notes
 
 This is where you can add your notes for things like manual configuration.
 
 ---
 
-#### roles
+## roles
 
 This is where you can add your custom Ansible [roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles) for usage by your playbooks.
 
-##### Read more
+## Read more
 
 [Roles - http://docs.ansible.com/ansible/playbooks_roles.html#roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles)
 
 ---
 
-#### ssh/logs
+## ssh/logs
 
 By default this is just a symlink to `./ssh/logs/ansible.log`.
 
 ---
 
-#### playbooks
+## playbooks
 
-##### Read More
+## Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
 
 ---
+## 👬 Contribution
+
+- Open pull request with improvements
+- Discuss ideas in issues
+- Spread the word
+- Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/anmol_nagpal.svg?style=social&label=Follow%20%40anmol_nagpal)](https://twitter.com/anmol_nagpal)
