@@ -16,12 +16,15 @@ Ref:
 ├── files
 │
 ├── group_vars
-│   ├── group_vars
-│   └── host_vars
+│   ├── all
+│   └── dev-api-backend
 ├── Inventory
 │   └── hosts.ini
+├── notes
+│   └── tags.txt
 ├── roles
 │   └── docker
+│   └── docker-compose    
 ├── ssh
 │   └── logs
 │       └── ansible.log
