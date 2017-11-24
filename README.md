@@ -59,7 +59,6 @@ Ansible to load the variables for the hosts in that group.
 Example structure:
 
 ```
-.
 └── group_vars
     ├── all
     │   └── global.yml
