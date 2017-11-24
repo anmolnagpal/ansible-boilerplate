@@ -114,18 +114,13 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 [Roles - http://docs.ansible.com/ansible/playbooks_roles.html#roles](http://docs.ansible.com/ansible/playbooks_roles.html#roles)
 
----
----
 
 #### ssh/logs
 
 By default this is just a symlink to `./ssh/logs/ansible.log`.
 
----
 #### playbooks
 
 ##### Read More
 
 - [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
-
----
