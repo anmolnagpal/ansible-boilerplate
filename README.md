@@ -7,6 +7,8 @@ Ref:
 
 - [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
 
+![playground](https://user-images.githubusercontent.com/4303310/38618767-9b1c3a72-3dab-11e8-9d3e-e1feb8787aca.png)
+
 
 
 ## Directory structure
