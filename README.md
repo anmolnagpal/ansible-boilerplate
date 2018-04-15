@@ -8,37 +8,9 @@ Ref:
 - [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
 
 
+
 ## Directory structure
-
-```
-├── block
-│
-├── files
-│
-├── group_vars
-│   ├── all
-│   └── dev-api-backend
-│
-├── Inventory
-│   └── hosts.ini
-│
-├── notes
-│   └── tags.txt
-├── roles
-│   └── docker
-│   └── docker-compose    
-│
-├── ssh
-│   └── facts
-│   └── logs
-│       └── ansible.log
-│   └── retry
-│
-├── ansible.cfg
-│
-└── dev-api-backend.yml
-
-```
+![role structure](https://user-images.githubusercontent.com/4303310/38615171-c0e52508-3da0-11e8-861a-081e1927060a.png)
 
 ---
 
