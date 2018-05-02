@@ -3,5 +3,6 @@ pipeline:
     image: yokogawa/ansible-lint
     pull: true
     commands:
-        - git ls-files -z "*.yml" | xargs -r -0 ansible-lint
+        #- git ls-files -z "*.yml" | xargs -r -0 ansible-lint
+        - ansible-lint dev-api-backend.yml
 
