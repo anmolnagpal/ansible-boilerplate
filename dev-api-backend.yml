@@ -1,5 +1,5 @@
 ---
-- hosts: dev-api-backend
+- hosts: localhost
   remote_user: ubuntu
   become: true
   roles:
