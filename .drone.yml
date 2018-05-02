@@ -1,0 +1,28 @@
+workspace:
+  base: /work
+  path: ${DRONE_REPO_NAME}
+
+pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - /work/${DRONE_REPO_NAME}
+      - /work
+    volumes:
+        - /opt/drone-server/repo:/cache
+
+  build:
+    image: yokogawa/ansible-lint
+    commands:
+        - cd /work/${DRONE_REPO_NAME} && git pull origin
+        - git ls-files -z "*.yml" | xargs -r -0 ansible-lint
+
+  rebuild-cache:
+      image: drillster/drone-volume-cache
+      rebuild: true
+      mount:
+        - /work/${DRONE_REPO_NAME}
+        - /work
+      volumes:
+        - /opt/drone-server/repo:/cache
