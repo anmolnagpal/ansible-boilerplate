@@ -3,6 +3,10 @@ pipeline:
     image: yokogawa/ansible-lint
     pull: true
     commands:
-        #- git ls-files -z "*.yml" | xargs -r -0 ansible-lint
         - ansible-lint dev-api-backend.yml
 
+  notify-slack-releases:
+    image: plugins/slack
+    channel: general
+    webhook: https://hooks.slack.com/services/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
+    username: Drone-CI
