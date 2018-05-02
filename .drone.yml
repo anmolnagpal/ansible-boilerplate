@@ -4,7 +4,7 @@ pipeline:
     pull: true
     commands:
         - ansible-lint dev-api-backend.yml
-        - ansible-playbook -i ./roles/docker/tests/inventory dev-api-backend.yml  --syntax-check
+        - ansible-playbook -i ./inventory/inventory dev-api-backend.yml  --syntax-check
 
   notify-slack-releases:
     image: plugins/slack
