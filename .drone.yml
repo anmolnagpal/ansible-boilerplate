@@ -1,8 +1,9 @@
 pipeline:
   build:
-    image: yokogawa/ansible-lint
+    image: gentitope/ansible-test-docker:1.0
     pull: true
     commands:
-        #- git ls-files -z "*.yml" | xargs -r -0 ansible-lint
         - ansible-lint dev-api-backend.yml
+        - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .ini$  | tr -s "\n" " " | sed 's/%$//')
+        - ansible-review $changedfiles
 
