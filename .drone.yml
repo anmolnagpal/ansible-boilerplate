@@ -6,4 +6,3 @@ pipeline:
         - ansible-lint dev-api-backend.yml
         - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
         - ansible-review $changedfiles
-
