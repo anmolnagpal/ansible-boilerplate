@@ -2,4 +2,5 @@
 - name: ensure agents folders is 0777
   file: path={{ item }} state=directory  mode=0777
   with_items:
-    - "/ansible/test"
+    -
+     "/ansible/test"
