@@ -1,9 +1,14 @@
 ---
 pipeline:
-  build:
+  test:
     image: gentitope/ansible-test-docker:1.2
     pull: true
     commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-lint
-      - ansible-playbook -c local dev-api-backend.yml
+
+  deploy_test:
+      image: gentitope/ansible-test-docker:1.2
+      pull: true
+      commands:
+        - ansible-playbook -c local dev-api-backend.yml
