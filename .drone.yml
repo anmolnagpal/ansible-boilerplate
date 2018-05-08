@@ -11,4 +11,4 @@ pipeline:
       image: gentitope/ansible-test-docker:1.2
       pull: true
       commands:
-        - ansible-playbook -c local dev-api-backend.yml
+        - ansible-playbook -i localtest/inventory -c local localtest/ci-test.yml
