@@ -4,4 +4,14 @@
   with_items:
     -
 
-     "/ansible/test"
+              "/ansible/test"
+
+- name: setup group
+  group: name=test system=yes
+  tags:
+    - test
+
+- name: setup user
+  user: name=test system=yes group=test
+  tags:
+    - test
