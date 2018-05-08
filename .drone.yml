@@ -12,3 +12,4 @@ pipeline:
       pull: true
       commands:
         - ansible-playbook -i localtest/inventory -c local localtest/ci-test.yml
+        - ansible-playbook --syntax-check --list-tasks -i localtest/inventory dev-api-backend.yml
