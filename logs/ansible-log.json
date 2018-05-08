@@ -1,0 +1,31 @@
+2018-05-08 13:40:04,348 p=6399 u=temitope.oteyowo |  ansible-playbook 2.5.2
+  config file = /Users/temitope.oteyowo/Homespace/ansible-boilerplate/ansible.cfg
+  configured module search path = ['/Users/temitope.oteyowo/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.5 (default, Apr 25 2018, 14:23:58) [GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)]
+2018-05-08 13:40:04,349 p=6399 u=temitope.oteyowo |  Using /Users/temitope.oteyowo/Homespace/ansible-boilerplate/ansible.cfg as config file
+2018-05-08 13:40:04,366 p=6399 u=temitope.oteyowo |  Parsed /Users/temitope.oteyowo/Homespace/ansible-boilerplate/inventory/hosts.ini inventory source with ini plugin
+2018-05-08 13:40:04,793 p=6399 u=temitope.oteyowo |  ERROR! A recursion loop was detected with the roles specified. Make sure child roles do not have dependencies on parent roles
+
+The error appears to have been in '/Users/temitope.oteyowo/Homespace/ansible-boilerplate/roles/docker/meta/main.yml': line 3, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+dependencies:
+  - { role: docker-compose }
+    ^ here
+
+2018-05-08 13:43:26,749 p=6452 u=temitope.oteyowo |  ansible-playbook 2.5.2
+  config file = /Users/temitope.oteyowo/Homespace/ansible-boilerplate/ansible.cfg
+  configured module search path = ['/Users/temitope.oteyowo/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.5 (default, Apr 25 2018, 14:23:58) [GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)]
+2018-05-08 13:43:26,750 p=6452 u=temitope.oteyowo |  Using /Users/temitope.oteyowo/Homespace/ansible-boilerplate/ansible.cfg as config file
+2018-05-08 13:43:26,767 p=6452 u=temitope.oteyowo |  Parsed /Users/temitope.oteyowo/Homespace/ansible-boilerplate/inventory/hosts.ini inventory source with ini plugin
+2018-05-08 13:43:26,973 p=6452 u=temitope.oteyowo |  statically imported: /Users/temitope.oteyowo/Homespace/ansible-boilerplate/roles/docker-compose/tasks/install.yml
+2018-05-08 13:43:26,992 p=6452 u=temitope.oteyowo |  statically imported: /Users/temitope.oteyowo/Homespace/ansible-boilerplate/roles/docker-compose/tasks/install.yml
+2018-05-08 13:43:26,995 p=6452 u=temitope.oteyowo |  1 plays in dev-api-backend.yml
+2018-05-08 13:43:27,020 p=6452 u=temitope.oteyowo |  playbook: dev-api-backend.yml

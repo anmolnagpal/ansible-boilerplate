@@ -5,3 +5,8 @@ pipeline:
     commands:
         - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
         #- git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs -r ansible-lint
+
+deploy:
+    ansible:
+        image: rics3n/drone-ansible
+        playbook: dev-api-backend.yml
