@@ -8,5 +8,5 @@ pipeline:
 
   deploy:
     ansible:
-      image: rics3n/drone-ansible
+      image: gentitope/ansible-test-docker:1.1
       playbook: dev-api-backend.yml
