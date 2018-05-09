@@ -161,3 +161,31 @@ dependencies:
 2018-05-08 19:56:23,303 p=1935 u=temitope.oteyowo |  =============================================================================== 
 2018-05-08 19:56:23,303 p=1935 u=temitope.oteyowo |  Gathering Facts ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 0.39s
 2018-05-09 10:53:38,462 p=4713 u=temitope.oteyowo |  playbook: localtest/ci-test.yml
+2018-05-09 11:00:02,264 p=4872 u=temitope.oteyowo |  ERROR! playbooks must be a list of plays
+
+The error appears to have been in '/Users/temitope.oteyowo/Homespace/ansible-boilerplate/.drone.yml': line 2, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+pipeline:
+^ here
+
+2018-05-09 11:00:03,240 p=4877 u=temitope.oteyowo |   [WARNING]: Could not match supplied host pattern, ignoring: dev-api-backend
+
+2018-05-09 11:00:03,241 p=4877 u=temitope.oteyowo |  playbook: .//dev-api-backend.yml
+2018-05-09 11:01:26,966 p=4908 u=temitope.oteyowo |  ERROR! playbooks must be a list of plays
+
+The error appears to have been in '/Users/temitope.oteyowo/Homespace/ansible-boilerplate/.drone.yml': line 2, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+pipeline:
+^ here
+
+2018-05-09 11:01:27,839 p=4913 u=temitope.oteyowo |   [WARNING]: Could not match supplied host pattern, ignoring: dev-api-backend
+
+2018-05-09 11:01:27,839 p=4913 u=temitope.oteyowo |  playbook: .//dev-api-backend.yml
