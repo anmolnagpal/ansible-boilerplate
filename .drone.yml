@@ -11,5 +11,5 @@ pipeline:
     image: gentitope/ansible-test-docker:1.2
     pull: true
     commands:
-      - ansible-playbook -i localtest/inventory -c local find ./playbooks -maxdepth 1 -name '*.yml'| xargs -n1  ansible-playbook --syntax-check --list-tasks -i tests/ansible_hostslocaltest/ci-test.yml
+      - ansible-playbook -i localtest/inventory -c local localtest/ci-test.yml
       - ansible-playbook -i localtest/inventory -c local localtest/ci-test.yml --syntax-check --list-tasks
