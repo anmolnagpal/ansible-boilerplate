@@ -8,8 +8,6 @@
   easy_install:
     name: pip
 
-
-
 - name: remove python modules for docker
   pip:
     name: "{{ item }}"
@@ -26,5 +24,3 @@
       version: "{{ docker_compose_version | default(omit) }}"
     - name: docker
       version: "{{ docker_pip_version | default(omit) }}"
-
-
