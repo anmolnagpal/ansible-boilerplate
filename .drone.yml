@@ -12,4 +12,5 @@ pipeline:
     pull: true
     commands:
    #   - ansible-playbook -i localtest/inventory -c local localtest/ci-test.yml
-      - "ansible-playbook -i ./localtest/inventory ./localtest/ci-test.yml --connection=local --sudo -vvv"
+      - "ansible-playbook -i ./localtest/inventory ./localtest/ci-test.yml --connection=local -vvv"
+      - "ansible-playbook -i ./localtest/inventory dev-api-backend.yml --connection=local  -vvv"
