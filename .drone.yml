@@ -5,7 +5,7 @@ pipeline:
     pull: true
     commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
-      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-lint
+     # - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-lint
 
   deploy_test:
     image: gentitope/ansible-test-docker:1.2
