@@ -1,0 +1,33 @@
+---
+pipeline:
+  ansible_review:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
+#
+#  ansigenome_scan:
+#    image: anmolnagpal/devops-ci:0.0.1
+#    pull: true
+#    commands:
+#      - ansigenome scan
+
+#  yamllint: @todo Need to be done asap
+#    image: anmolnagpal/devops-ci:0.0.1
+#    pull: true
+#    commands:
+#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./files/yamllint
+
+  syntax-check:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
+
+  deploy_on_local:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv
+      - "ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+
