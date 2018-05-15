@@ -1,0 +1,8 @@
+---
+- name: OS hardening
+  import_tasks: hardening.yml
+  tags:
+    - hardening
+
+
+
