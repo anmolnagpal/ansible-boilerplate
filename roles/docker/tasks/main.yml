@@ -34,13 +34,3 @@
   user: name=test2 system=yes group=test2
   tags:
     - test
-
-- name: setup group
-  group: name=test3 system=yes
-  tags:
-    - test
-
-- name: setup user
-  user: name=test3 system=yes group=test3
-  tags:
-    - test
