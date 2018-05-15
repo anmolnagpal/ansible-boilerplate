@@ -203,3 +203,4 @@ fabric.properties
 
 /logs/retry/
 /logs/facts/
+/logs/ansible-log.json
