@@ -1,10 +1,15 @@
 ---
 pipeline:
-  test:
+  ansible_review:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
+
+  yamllint:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint
 
   deploy_test:
