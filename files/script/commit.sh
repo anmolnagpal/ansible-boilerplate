@@ -22,8 +22,7 @@ ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local
 EXIT_CODE=$?
 
 # Notify GitHub
-if [ $EXIT_CODE == 0 ]
-then
+if [ "$EXIT_CODE" == 0 ]; then
   export STATUS="success"
   export DESCRIPTION="No style issues"
   echo $DESCRIPTION
