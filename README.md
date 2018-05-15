@@ -24,6 +24,8 @@ Ref:
 ├── _ssh
 │   └── web.ssh.config
 │
+├── _ssl
+│
 ├── group_vars
 │   ├── all
 │   └── dev-api-backend
@@ -32,12 +34,14 @@ Ref:
 │   └── tags.txt
 │
 ├── roles
+│   └── common
+│   └── hardening
 │   └── docker
 │   └── docker-compose    
 │
 ├── ansible.cfg
 │
-└── dev-api-backend.yml
+└── dev-bastion.yml
 ```
 ---
 
@@ -64,7 +68,7 @@ Example structure:
 └── group_vars
     ├── all
     │   └── global.yml
-    └── dev-api-backend
+    └── dev-bastion
             └── config.yml
 ```
 
