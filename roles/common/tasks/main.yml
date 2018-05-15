@@ -4,13 +4,4 @@
   tags:
     - common
 
-- name: include limits
-  import_tasks: limits.yml
-  vars:
-    # todo hotfix till ansible python3 release fix
-    ansible_python_interpreter: /usr/bin/python
-  tags:
-    - limits-deploy
-
-
 
