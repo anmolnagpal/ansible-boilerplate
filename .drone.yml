@@ -12,7 +12,7 @@ pipeline:
 #    commands:
 #      - ansigenome scan
 
-#  yamllint:
+#  yamllint: @todo Need to be done asap
 #    image: anmolnagpal/devops-ci:0.0.1
 #    pull: true
 #    commands:
