@@ -3,6 +3,3 @@
   import_tasks: hardening.yml
   tags:
     - hardening
-
-
-
