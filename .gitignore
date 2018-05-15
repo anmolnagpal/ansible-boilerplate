@@ -185,22 +185,14 @@ out/
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 # User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/ansible-boilerplate.iml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/*
 # JIRA plugin
 atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
 .idea/replstate.xml
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
 
-/logs/retry/
-/logs/facts/
-/logs/ansible-log.json
+/_logs/ansible-log.json
+/_logs/facts/
+/_logs/retry/
