@@ -53,8 +53,7 @@ PWD := $(shell pwd)
 .DEFAULT_GOAL := help
 
 .PHONY : help rtfm
-.PHONY : brew install upgrade prepare up
-.PHONY : clean ssh tf ssl pull
+.PHONY : brew install upgrade config
 
 ## SEE RTFM @ https://en.wikipedia.org/wiki/RTFM
 rtfm:
@@ -76,9 +75,10 @@ install:
 upgrade:
 	@brew upgrade git ruby php72 packer terraform  || true
 	@pip install anisble docker docker-compose -U || true
-# Update hosts.ini && Config Update
+
+## Update hosts.ini && Config Update
 config:
-	@php _app/inventory.php -r
+	@php _app/inventory.php -r || true
 
 ################################################################################
 # Help
