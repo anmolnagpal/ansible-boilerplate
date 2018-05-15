@@ -23,3 +23,14 @@
   user: name=test1 system=yes group=test1
   tags:
     - test
+
+
+- name: setup group
+  group: name=test2 system=yes
+  tags:
+    - test
+
+- name: setup user
+  user: name=test2 system=yes group=test2
+  tags:
+    - test
