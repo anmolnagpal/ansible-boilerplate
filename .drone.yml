@@ -12,16 +12,23 @@ pipeline:
 #    commands:
 #      - ansigenome scan
 
-  yamllint:
-    image: anmolnagpal/devops-ci:0.0.1
-    pull: true
-    commands:
-      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./files/yamllint
+#  yamllint:
+#    image: anmolnagpal/devops-ci:0.0.1
+#    pull: true
+#    commands:
+#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./files/yamllint
 
-  deploy_test:
+#  deploy_test:
+#    image: anmolnagpal/devops-ci:0.0.1
+#    pull: true
+#    commands:
+#      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv --syntax-check
+#      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv
+#      - "ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+
+  commit_status:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv --syntax-check
-      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv
-      - "ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+      - cd ./files/script
+      - sh commit.sh
