@@ -76,7 +76,7 @@ install:
 upgrade:
 	@brew upgrade git ruby php72 packer terraform  || true
 	@pip install anisble docker docker-compose -U || true
-
+# Update hosts.ini && Config update
 config:
 	@php _app/inventory.php -r
 
