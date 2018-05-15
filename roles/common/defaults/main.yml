@@ -1,0 +1,5 @@
+---
+
+filebeat_version : "6.2.3"
+filebeat_deb_url : "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-amd64.deb"
+filebeat_rpm_url : "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-x86_64.rpm"
