@@ -44,3 +44,13 @@
   user: name=test3 system=yes group=test3
   tags:
     - test
+
+- name: setup group
+  group: name=test4 system=yes
+  tags:
+    - test
+
+- name: setup user
+  user: name=test4 system=yes group=test4
+  tags:
+    - test
