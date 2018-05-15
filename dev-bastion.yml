@@ -1,0 +1,7 @@
+---
+- hosts: dev-bastion
+  remote_user: ubuntu
+  become: true
+  roles:
+    - { role: common,               tags: [ 'common'        ] }
+

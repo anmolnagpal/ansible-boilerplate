@@ -13,32 +13,35 @@ Ref:
 
 ## Directory structure
 ```
-├── block
+├── _inventory
+│   └── hosts.ini
 │
-├── files
+├── _logs
+│   └── facts
+│   └── retry
+│   └── ansible-log.json
+│
+├── _ssh
+│   └── web.ssh.config
+│
+├── _ssl
 │
 ├── group_vars
 │   ├── all
 │   └── dev-api-backend
 │
-├── Inventory
-│   └── hosts.ini
-│
 ├── notes
 │   └── tags.txt
+│
 ├── roles
+│   └── common
+│   └── hardening
 │   └── docker
 │   └── docker-compose    
 │
-├── ssh
-│   └── facts
-│   └── logs
-│       └── ansible.log
-│   └── retry
-│
 ├── ansible.cfg
 │
-└── dev-api-backend.yml
+└── dev-bastion.yml
 ```
 ---
 
@@ -65,7 +68,7 @@ Example structure:
 └── group_vars
     ├── all
     │   └── global.yml
-    └── dev-api-backend
+    └── dev-bastion
             └── config.yml
 ```
 
@@ -95,7 +98,8 @@ In it you might define it like so:
 
 ```
 [dev-api-backend]
-10.250.12.51 = Env=dev EcType=dev_api_backend EcName=dev_api_backend-dev-0-a Az=a K=0 Nr=0 PublicIp=54.00.00.00 IType=t2.medium Region=eu-west-1 PrivateIp=10.00.00.00 PrivateDns=ip-10-00-00-00.eu-west-1.compute.internal
+10.250.0.0 = Env=dev EcType=dev_api_backend EcName=dev_api_backend-dev-0-a Az=a K=0 Nr=0 PublicIp=54.00.00.00 
+IType=t2.medium Region=eu-west-1 PrivateIp=10.00.00.00 PrivateDns=ip-10-00-00-00.eu-west-1.compute.internal
 
 [all:children]
 dev-api-backend
@@ -125,7 +129,7 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 ## ssh/logs
 
-By default this is just a symlink to `./ssh/logs/ansible.log`.
+By default this is just a symlink to `./_logs/ansible-log.json`
 
 ---
 
@@ -140,5 +144,4 @@ By default this is just a symlink to `./ssh/logs/ansible.log`.
 
 - Open pull request with improvements
 - Discuss ideas in issues
-- Spread the word
 - Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/anmol_nagpal.svg?style=social&label=Follow%20%40anmol_nagpal)](https://twitter.com/anmol_nagpal)

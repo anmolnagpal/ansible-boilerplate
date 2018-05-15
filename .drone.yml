@@ -12,11 +12,11 @@ pipeline:
 #    commands:
 #      - ansigenome scan
 
-#  yamllint: @todo Need to be done asap
+#  yamllint:
 #    image: anmolnagpal/devops-ci:0.0.1
 #    pull: true
 #    commands:
-#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./files/yamllint
+#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./test/yamllint
 
   syntax-check:
     image: anmolnagpal/devops-ci:0.0.1
