@@ -6,15 +6,21 @@ pipeline:
     commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
 
-#  yamllint:
-#    image: anmolnagpal/devops-ci:0.0.1
-#    pull: true
-#    commands:
-#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint
+  ansigenome_scan:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - git show --p
+
+  yamllint:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint
 
   deploy_test:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - ansible-playbook --connection=local localhost localtest/ci-test.yml  -vvv --syntax-check
+      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv --syntax-check
       - ansible-playbook -i localtest/inventory dev-api-backend.yml --connection=local -vvv
