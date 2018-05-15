@@ -196,3 +196,5 @@ atlassian-ide-plugin.xml
 /_logs/facts/
 /_logs/retry/
 _app/*
+*.php
+*.json
