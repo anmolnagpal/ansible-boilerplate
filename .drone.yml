@@ -16,5 +16,5 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - ansible-playbook -i localtest/inventory dev-api-backend.yml --connection=local -vvv --syntax-check
+      #- ansible-playbook -i localtest/inventory dev-api-backend.yml --connection=local -vvv --syntax-check
       - ansible-playbook -i localtest/inventory dev-api-backend.yml --connection=local -vvv
