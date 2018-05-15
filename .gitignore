@@ -183,7 +183,11 @@ out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
-
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/ansible-boilerplate.iml
+.idea/modules.xml
+.idea/vcs.xml
 # JIRA plugin
 atlassian-ide-plugin.xml
 
