@@ -129,7 +129,7 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 ## ssh/logs
 
-By default this is just a symlink to `./_logs/ansible-log.json`.
+By default this is just a symlink to `./_logs/ansible-log.json`
 
 ---
 
