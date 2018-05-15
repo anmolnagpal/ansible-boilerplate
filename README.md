@@ -98,7 +98,8 @@ In it you might define it like so:
 
 ```
 [dev-api-backend]
-10.250.12.51 = Env=dev EcType=dev_api_backend EcName=dev_api_backend-dev-0-a Az=a K=0 Nr=0 PublicIp=54.00.00.00 IType=t2.medium Region=eu-west-1 PrivateIp=10.00.00.00 PrivateDns=ip-10-00-00-00.eu-west-1.compute.internal
+10.250.0.0 = Env=dev EcType=dev_api_backend EcName=dev_api_backend-dev-0-a Az=a K=0 Nr=0 PublicIp=54.00.00.00 
+IType=t2.medium Region=eu-west-1 PrivateIp=10.00.00.00 PrivateDns=ip-10-00-00-00.eu-west-1.compute.internal
 
 [all:children]
 dev-api-backend
@@ -128,7 +129,7 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 ## ssh/logs
 
-By default this is just a symlink to `./ssh/logs/ansible.log`.
+By default this is just a symlink to `./_logs/ansible-log.json`.
 
 ---
 
