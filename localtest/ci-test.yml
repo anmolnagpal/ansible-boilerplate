@@ -1,3 +1,4 @@
 - hosts: localhost
   roles:
     - ../roles/docker
+    - ../roles/docker-compose
