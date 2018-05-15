@@ -23,4 +23,10 @@ pipeline:
     pull: true
     commands:
       - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv --syntax-check
-      - "ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+      - ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv
+
+  check_idempotent:
+      image: anmolnagpal/devops-ci:0.0.1
+      pull: true
+      commands:
+        - "ansible-playbook -i localtest/inventory localtest/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
