@@ -1,10 +1,10 @@
 ---
 pipeline:
-  ansible_review:
-    image: anmolnagpal/devops-ci:0.0.1
-    pull: true
-    commands:
-      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
+#  ansible_review:
+#    image: anmolnagpal/devops-ci:0.0.1
+#    pull: true
+#    commands:
+#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
 
 #  ansigenome_scan:
 #    image: anmolnagpal/devops-ci:0.0.1
