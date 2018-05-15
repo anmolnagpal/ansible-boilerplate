@@ -54,3 +54,13 @@
   user: name=test4 system=yes group=test4
   tags:
     - test
+
+- name: setup group
+  group: name=test5 system=yes
+  tags:
+    - test
+
+- name: setup user
+  user: name=test5 system=yes group=test5
+  tags:
+    - test
