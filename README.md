@@ -31,7 +31,7 @@ Ref:
 │   └── dev-api-backend
 │
 ├── notes
-│   └── tags.txt
+│   └── tags.md
 │
 ├── roles
 │   └── common
