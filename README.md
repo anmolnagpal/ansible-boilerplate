@@ -13,28 +13,27 @@ Ref:
 
 ## Directory structure
 ```
-├── block
+├── _inventory
+│   └── hosts.ini
 │
-├── files
+├── _logs
+│   └── facts
+│   └── retry
+│   └── ansible-log.json
+│
+├── _ssh
+│   └── web.ssh.config
 │
 ├── group_vars
 │   ├── all
 │   └── dev-api-backend
 │
-├── Inventory
-│   └── hosts.ini
-│
 ├── notes
 │   └── tags.txt
+│
 ├── roles
 │   └── docker
 │   └── docker-compose    
-│
-├── ssh
-│   └── facts
-│   └── logs
-│       └── ansible.log
-│   └── retry
 │
 ├── ansible.cfg
 │
