@@ -30,5 +30,5 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - cd ./files/script
+      - cd files/script
       - sh commit.sh
