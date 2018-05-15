@@ -1,3 +1,3 @@
-- hosts: all
+- hosts: localhost
   roles:
-    - { role: ../../ansible-boilerplate }
+    - ansible-boilerplate
