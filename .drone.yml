@@ -24,7 +24,7 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
+        - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
 
   deploy_on_local:
     image: anmolnagpal/devops-ci:0.0.1

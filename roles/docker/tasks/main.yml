@@ -15,8 +15,8 @@
     - test
 
 - name: setup group
-   group: name=test system=yes
-   tags:
+  group: name=test system=yes
+  tags:
     - test
 
 - name: setup user
