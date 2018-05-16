@@ -17,11 +17,7 @@ pipeline:
     pull: true
     commands:
       - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
-      - if [ ! -z "${changedfiles}" ]; then
-             yamllint  -c ./test/yamllint $changedfiles
-        else
-             echo "No yaml file changes"
-        fi
+      - if [ ! -z "${changedfiles}" ]; then yamllint  -c ./test/yamllint $changedfiles; else echo "No yaml file changes"; fi
 
   syntax-check:
     image: anmolnagpal/devops-ci:0.0.1
