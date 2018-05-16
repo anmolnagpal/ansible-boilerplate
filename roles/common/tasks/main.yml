@@ -1,0 +1,7 @@
+---
+- name: include common debian
+  import_tasks: debian.yml
+  tags:
+    - common
+
+

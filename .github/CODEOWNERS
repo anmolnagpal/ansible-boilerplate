@@ -1,0 +1,12 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in the repo.
+*       @anmolnagpal
+
+
+# will be requested to review.
+*.yml     @anmolnagpal
+
+# You can also use email addresses if you prefer.
+notes/*  @anmolnagpal

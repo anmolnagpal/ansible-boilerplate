@@ -1,0 +1,61 @@
+---
+- name: dpkg --configure -a
+  shell: dpkg --configure -a
+  tags:
+    - packages
+    - common
+    - dpkg-reconf
+
+- name: install system pakcages and utils
+  apt:
+   name: "{{ item }}"
+   state: latest
+   update_cache: yes
+   cache_valid_time: 5400
+   allow_unauthenticated: yes
+  with_items:
+   - ntp
+   - openssl
+   - git
+   - git-core
+   - golang
+   - goaccess
+   - htop
+   - rsyslog
+   - zip
+   - vim
+   - vim-common
+   - curl
+   - multitail
+   - upstart
+   - sysstat
+   - figlet
+   - python-pip
+   - python-software-properties
+   - apt-transport-https
+   - libfontconfig
+   - libjson-xs-perl
+  tags:
+    - packages
+    - common
+
+- name: install pip packages ( aws .. )
+  pip: name=awscli
+  tags:
+    - awscli
+    - common
+    - packages
+
+# @link http://bencane.com/2012/07/08/sar-sysstat-linux-performance-statistics-with-ease/
+- name: enable /etc/default/sysstat
+  lineinfile:
+   backup: yes
+   create: yes
+   dest: /etc/default/sysstat
+   regexp: '^ENABLED='
+   line: 'ENABLED="true"'
+   state: present
+  tags:
+    - common-config
+    - packages
+    - common
