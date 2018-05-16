@@ -16,18 +16,15 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - changefiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
-      - if [ ! -z "${changedfiles}" ]; then
-            yamllint  -c ./test/yamllint $changedfiles
-        else
-            echo "No yaml file changes"
-        fi
+      - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
+      - echo $changedfiles
+      - if [ ! -z $changedfiles ]; then echo $changedfiles | xargs yamllint -c ./test/yamllint; else echo "No yaml file changes"; fi
 
   syntax-check:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
+      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
 
   deploy_on_local:
     image: anmolnagpal/devops-ci:0.0.1
@@ -35,4 +32,3 @@ pipeline:
     commands:
       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv
       - "ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
-
