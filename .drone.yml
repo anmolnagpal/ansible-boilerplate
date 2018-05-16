@@ -17,7 +17,7 @@ pipeline:
     pull: true
     commands:
       - changefiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
-      - echo ${changefiles[@]}
+      #- echo ${changefiles[@]}
       #- git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./test/yamllint | tee /root/yamllint.log
 
   syntax-check:
