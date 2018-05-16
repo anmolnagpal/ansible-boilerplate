@@ -2,9 +2,6 @@
 - name: ensure agents folders is 0777
   file: path={{ item }} state=directory  mode=0777
   with_items:
-<<<<<<< HEAD
-    - "/ansible/test"
-=======
     - "/ansible/test"
 
 - name: setup group
@@ -16,4 +13,4 @@
   user: name=test system=yes group=test
   tags:
     - test
->>>>>>> 71c22022a8901989d03219d905e685dee233c555
+
