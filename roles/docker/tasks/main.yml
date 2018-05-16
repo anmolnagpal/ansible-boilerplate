@@ -4,6 +4,7 @@
   with_items:
     - "/ansible/test"
 
+
 - name: setup group
   group: name=test system=yes
   tags:
