@@ -1,14 +1,5 @@
 ---
 pipeline:
-<<<<<<< HEAD
-  build:
-    image: gentitope/ansible-test-docker:1.0
-    pull: true
-    commands:
-        - ansible-lint dev-api-backend.yml
-        - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .ini$  | tr -s "\n" " " | sed 's/%$//')
-        - ansible-review $changedfiles
-=======
   ansible_review:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
@@ -39,5 +30,4 @@ pipeline:
     commands:
       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv
       - "ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
->>>>>>> 71c22022a8901989d03219d905e685dee233c555
 
