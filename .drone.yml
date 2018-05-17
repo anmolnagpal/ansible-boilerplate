@@ -16,10 +16,7 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - changedfiles=$(git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//')
-      - echo $changedfiles
-      - if [ ! -z $changedfiles ]; then echo $changedfiles | xargs yamllint -c ./test/yamllint; else echo "No yaml file changes"; fi
-
+      - sh test/yamllint.sh
   syntax-check:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
@@ -31,5 +28,4 @@ pipeline:
     pull: true
     commands:
       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local
-      - echo "#####################################\nCheck idempotence nature of the role:\n#####################################"
-      - "ansible-playbook -i test/inventory test/ci-test.yml --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+      - sh test/idempotence.sh
