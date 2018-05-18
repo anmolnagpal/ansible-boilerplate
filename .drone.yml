@@ -5,29 +5,35 @@ pipeline:
     pull: true
     commands:
       - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs ansible-review
-#
-#  ansigenome_scan:
-#    image: anmolnagpal/devops-ci:0.0.1
-#    pull: true
-#    commands:
-#      - ansigenome scan
 
-#  yamllint:
-#    image: anmolnagpal/devops-ci:0.0.1
-#    pull: true
-#    commands:
-#      - git show --pretty="" --no-commit-id  --diff-filter=AMRC  --name-only `git log --format="%H" -n 1` | grep -e .yml$  | tr -s "\n" " " | sed 's/%$//' | xargs yamllint  -c ./test/yamllint
+  ansigenome_scan:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - ansigenome scan
 
+  yamllint:
+    image: anmolnagpal/devops-ci:0.0.1
+    pull: true
+    commands:
+      - sh test/yamllint.sh
   syntax-check:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv --syntax-check
+      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local --syntax-check
 
   deploy_on_local:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
-      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv
-      - "ansible-playbook -i test/inventory test/ci-test.yml --connection=local -vvv | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+      - ansible-playbook -i test/inventory test/ci-test.yml --connection=local
+      - sh test/idempotence.sh
 
+  notify:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/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
+    channel: devops-logs
+    username: drone
+    when:
+      status: [success, failure]
