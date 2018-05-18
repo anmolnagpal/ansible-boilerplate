@@ -2,3 +2,4 @@
   roles:
     - ../roles/docker
     - ../roles/docker-compose
+    - ../roles/docker-redis
