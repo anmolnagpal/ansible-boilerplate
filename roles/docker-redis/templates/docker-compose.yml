@@ -1,19 +1,27 @@
-#
-# shared-docker-compose-variables
-#
-{{ lookup('template', playbook_dir + '/_shared-files/base-docker-compose.yml' ) }}
-
-#
-# docker-file-start
-#
 version: "3.5"
 services:
   redis_service:
-    # include base-docker-compose-vars
-    << : *srv-json
-
     image: redis:{{ redis_server_version }}-alpine
     container_name: redis-server
+    ## settings_template_start ##
+        privileged: true
+        ulimits:
+          nproc: 65535
+          memlock:
+            soft: -1
+            hard: -1
+          nofile:
+            soft: 165536
+            hard: 165536
+        cap_add:
+          - ALL
+        logging:
+          # limit logs retained on host to 25MB
+          driver: "json-file"
+          options:
+            max-size: "500k"
+            max-file: "50"
+        ## settings_template_end ##
     volumes:
       - {{ redis_server_log_dir }}:/var/log/redis
       - {{ redis_server_data_dir }}:/var/lib/redis
