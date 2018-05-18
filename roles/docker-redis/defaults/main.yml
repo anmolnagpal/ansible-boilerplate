@@ -1,20 +1,20 @@
 ---
 
+redis_server_version: "4.0.6"
+####
+mount_path: /data
+####
+redis_user: redis
+redis_group: redis
+###
 redis_datadir: /data/lib/redis
-
 redis_daemon_user: redis
 redis_daemon_group: redis
-
 redis_server_opt_dir: "/opt/redis-server"
 redis_server_config_dir: "{{ redis_server_opt_dir }}/config"
 redis_server_log_dir: "{{ mount_path }}/log/redis-server"
 redis_server_data_dir: "{{ mount_path }}/var/lib/redis-server"
 
-
-redis_user: redis
-redis_group: redis
-
-redis_server_version: "4.0.6"
 ## Networking/connection options
 redis_server_bind: 0.0.0.0
 redis_server_port: 6379
