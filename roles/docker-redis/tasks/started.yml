@@ -1,5 +1,0 @@
----
-- name: ensure redis-server docker-compose started
-  shell: /bin/true
-  notify:
-    - start docker-compose-redis-server
