@@ -7,6 +7,7 @@ mount_path: /data
 redis_user: redis
 redis_group: redis
 ###
+Env: demo
 redis_datadir: /data/lib/redis
 redis_daemon_user: redis
 redis_daemon_group: redis
