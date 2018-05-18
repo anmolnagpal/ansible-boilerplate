@@ -1,0 +1,11 @@
+---
+- import_tasks: users.yml
+- import_tasks: configure.yml
+- import_tasks: install.yml
+- import_tasks: started.yml
+
+#- name: install monit
+#  import_tasks: monit.yml
+#  tags:
+#    - monit
+#    - monit-config

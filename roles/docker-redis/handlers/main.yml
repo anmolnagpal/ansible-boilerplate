@@ -1,0 +1,20 @@
+---
+- name: start docker-compose-redis-server
+  become: true
+  docker_service:
+    project_src: "{{ redis_server_opt_dir }}"
+    state: present
+
+- name: restart docker-compose-redis-server
+  become: true
+  docker_service:
+    project_src: "{{ redis_server_opt_dir }}"
+    state: present
+    restarted: yes
+
+
+- name: stop docker-compose-redis-server
+  become: true
+  docker_service:
+    project_src: "{{ redis_server_opt_dir }}"
+    state: absent

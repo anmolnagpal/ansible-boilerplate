@@ -7,3 +7,4 @@
     - { role: hardening,            tags: [ 'common'        ] }
     - { role: docker,               tags: [ 'docker'        ] }
     - { role: docker-compose,       tags: [ 'docker'        ] }
+    - { role: docker-redis,         tags: [ 'redis'         ] }

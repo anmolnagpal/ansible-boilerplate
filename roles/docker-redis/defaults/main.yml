@@ -1,0 +1,57 @@
+---
+redis_user: redis
+redis_group: redis
+
+redis_server_version: "4.0.6"
+## Networking/connection options
+redis_server_bind: 0.0.0.0
+redis_server_port: 6379
+redis_server_password: false
+# Slave replication options
+redis_server_min_slaves_to_write: 0
+redis_server_min_slaves_max_lag: 10
+redis_server_tcp_backlog: 10000
+redis_server_tcp_keepalive: 20
+# Max connected clients at a time
+redis_server_maxclients: 30000
+redis_server_timeout: 0
+
+## Replication options
+# Set slaveof just as you would in redis.conf. (e.g. "redis01 6379")
+redis_server_slaveof: false
+# Make slaves read-only. "yes" or "no"
+redis_server_slave_read_only: "yes"
+redis_server_slave_priority: 100
+redis_server_repl_backlog_size: false
+
+## Logging
+redis_server_dir: /var/lib/redis
+redis_server_logfile: '"/var/log/redis/redis-server.log"'
+
+# Number of databases to allow
+redis_server_databases: 16
+redis_server_loglevel: notice
+# Log queries slower than this many milliseconds. -1 to disable
+redis_server_slowlog_log_slower_than: 10000
+# Maximum number of slow queries to save
+redis_server_slowlog_max_len: 128
+# Redis memory limit (e.g. 4294967296, 4096mb, 4gb)
+redis_server_maxmemory: false
+redis_server_maxmemory_policy: noeviction
+redis_server_rename_commands: []
+# How frequently to snapshot the database to disk
+# e.g. "900 1" => 900 seconds if at least 1 key changed
+redis_server_save:
+  - 900 1
+  - 300 10
+  - 60 10000
+redis_server_stop_writes_on_bgsave_error: "yes"
+redis_server_rdbcompression: "yes"
+redis_server_rdbchecksum: "yes"
+redis_server_appendonly: "no"
+redis_server_appendfilename: "appendonly.aof"
+redis_server_appendfsync: "everysec"
+redis_server_no_appendfsync_on_rewrite: "no"
+redis_server_auto_aof_rewrite_percentage: "100"
+redis_server_auto_aof_rewrite_min_size: "64mb"
+redis_server_notify_keyspace_events: '""'

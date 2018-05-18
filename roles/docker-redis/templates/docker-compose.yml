@@ -1,0 +1,25 @@
+#
+# shared-docker-compose-variables
+#
+{{ lookup('template', playbook_dir + '/_shared-files/base-docker-compose.yml' ) }}
+
+#
+# docker-file-start
+#
+version: "3.5"
+services:
+  redis_service:
+    # include base-docker-compose-vars
+    << : *srv-json
+
+    image: redis:{{ redis_server_version }}-alpine
+    container_name: redis-server
+    volumes:
+      - {{ redis_server_log_dir }}:/var/log/redis
+      - {{ redis_server_data_dir }}:/var/lib/redis
+      - {{ redis_server_data_dir }}:/data
+      - {{ redis_server_config_dir }}:/etc/redis-server
+    ports:
+      - {{ redis_server_port }}:{{ redis_server_port }}
+    command: redis-server /etc/redis-server/redis_server.conf
+    network_mode: host
