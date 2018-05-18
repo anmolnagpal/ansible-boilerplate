@@ -37,4 +37,3 @@ pipeline:
     username: drone
     when:
       status: [success, failure]
-
