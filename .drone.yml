@@ -35,4 +35,4 @@ pipeline:
     webhook: https://hooks.slack.com/services/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
     channel: general
     when:
-      status: [ success, failure ]
+      status: [success, failure]
