@@ -1,1 +1,11 @@
 ---
+
+redis_datadir: /data/lib/redis
+
+redis_daemon_user: redis
+redis_daemon_group: redis
+
+redis_server_opt_dir: "/opt/redis-server"
+redis_server_config_dir: "{{ redis_server_opt_dir }}/config"
+redis_server_log_dir: "{{ mount_path }}/log/redis-server"
+redis_server_data_dir: "{{ mount_path }}/var/lib/redis-server"
