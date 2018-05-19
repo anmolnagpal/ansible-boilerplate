@@ -1,0 +1,39 @@
+# base docker-compose.yml
+x-srv-gelf-prv-definitions:
+  &srv-gelf-prv
+    ## settings_template_start ##
+    privileged: true
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 165536
+        hard: 165536
+    cap_add:
+      - ALL
+    # logging default settings from /etc/docker/daemon.json
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://ops-logstash-internal-{{ Env }}.tajawal.io:5555"
+    ## settings_template_end ##
+    # network_mode: host
+
+x-srv-gelf-pub-definitions:
+  &srv-gelf-pub
+    << : *srv-gelf-prv
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://ops-logstash-external-{{ Env }}.tajawal.io:5555"
+
+x-srv-json-definitions:
+  &srv-json
+    << : *srv-gelf-prv
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "10"

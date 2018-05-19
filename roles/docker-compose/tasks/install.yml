@@ -1,0 +1,39 @@
+---
+
+- name: Installing packages
+  action: "{{ ansible_pkg_mgr }} pkg={{ item }} state=present"
+  with_items:
+    - python-setuptools
+
+- name: Installing dependencies
+  easy_install:
+    name: pip
+
+- name: remove python modules for docker
+  pip:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+#    - docker
+#    - docker-compose
+    - docker-py
+
+- name: install certain python modules for docker
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+#    state: latest
+  with_items:
+    - name: docker-compose
+      version: "{{ docker_compose_version | default(omit) }}"
+    - name: docker
+      version: "{{ docker_pip_version | default(omit) }}"
+
+
+- name: copy base docker-compose templates
+  template:
+    src: base-docker-compose.yml
+    dest: /etc/docker/base-docker-compose.yml
+    mode: 0777
+    owner: root
+    group: root
