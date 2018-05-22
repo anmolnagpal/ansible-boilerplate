@@ -27,8 +27,10 @@ pipeline:
     image: anmolnagpal/devops-ci:0.0.1
     pull: true
     commands:
+      - sh test/initstatus.sh
       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local
       - sh test/idempotence.sh
+      - sh test/afterstatus.sh
 
   notify:
     image: plugins/slack
