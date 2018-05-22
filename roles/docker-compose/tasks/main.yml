@@ -1,6 +1,9 @@
 ---
+
 - import_tasks: install.yml
   tags:
-    - docker
+    - development
     - docker-compose
+    - install
+    - docker-compose-install
 

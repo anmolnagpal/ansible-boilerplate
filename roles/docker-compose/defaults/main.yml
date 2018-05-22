@@ -1,4 +1,5 @@
 ---
-docker_compose_version: "1.17.1"
-docker_pip_version: "2.6.1"
-docker_py_version: "1.10.6"
+Env: live
+# version
+docker_compose_version: "1.19.0"
+docker_pip_version: "3.0.1"
