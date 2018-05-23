@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 
-#GITHUB_TOKEN=c09a4cf4e89dcd7f5c42592e84ae4c2d5b70650a
 GITHUB_API=https://api.github.com
 CI_CONTEXT="Testing"
 
