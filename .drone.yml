@@ -32,7 +32,6 @@ pipeline:
       - ansible-playbook -i test/inventory test/ci-test.yml --connection=local
       - sh test/idempotence.sh
 
-
   notify:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
