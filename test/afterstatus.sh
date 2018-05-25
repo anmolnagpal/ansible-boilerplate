@@ -6,7 +6,7 @@ CI_CONTEXT="Testing"
 
 # Notify GitHub build status
 
-curl "$GITHUB_API/repos/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/statuses/${DRONE_COMMIT}?access_token=$github_token" \
+curl "$GITHUB_API/repos/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/statuses/${DRONE_COMMIT}?access_token=$GITHUB_TOKEN" \
   -s \
   -H "Content-Type: application/json" \
   -X POST \
