@@ -10,7 +10,8 @@
       <img src="https://img.shields.io/badge/PayPal-Buy%20Me%20A%20BEER-blue.svg?style=flat-squares" alt="Donate">
     </a>
   </p>
-</p> 
+</p>
+
 #### Read More
 
 - [Boilerplate Code - https://en.wikipedia.org/wiki/Boilerplate_code](https://en.wikipedia.org/wiki/Boilerplate_code)
