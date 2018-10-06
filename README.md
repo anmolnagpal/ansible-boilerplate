@@ -146,7 +146,7 @@ By default this is just a symlink to `./_logs/ansible-log.json`
 
 #### Read More
 
-- [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
+- [Ansible-Vault](https://docs.ansible.com/ansible/2.4/vault.html)
 
 ---
 ## 👬 Contribution
