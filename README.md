@@ -140,6 +140,11 @@ This is where you can add your custom Ansible [roles](http://docs.ansible.com/an
 
 By default this is just a symlink to `./_logs/ansible-log.json`
 
+
+#### Read More
+
+- [Playbooks - http://docs.ansible.com/ansible/playbooks.html](http://docs.ansible.com/ansible/playbooks.html)
+
 ---
 ## 👬 Contribution
 
